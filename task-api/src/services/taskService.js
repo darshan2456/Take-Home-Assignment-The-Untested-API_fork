@@ -76,6 +76,18 @@ const completeTask = (id) => {
   return updated;
 };
 
+function assignTask(id, assignee) {
+  const task = tasks.find(t => t.id === id);
+  if (!task) return null;
+  
+  if (!assignee || typeof assignee !== 'string' || assignee.trim() === '') {
+    return { error: 'Assignee must be a non-empty string' };
+  }
+
+  task.assignee = assignee.trim();
+  return task;
+}
+
 const _reset = () => {
   tasks = [];
 };
