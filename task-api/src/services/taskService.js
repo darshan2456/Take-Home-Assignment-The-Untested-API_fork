@@ -76,7 +76,7 @@ const completeTask = (id) => {
   return updated;
 };
 
-function assignTask(id, assignee) {
+const assignTask = (id, assignee) => {
   const task = tasks.find(t => t.id === id);
   if (!task) return null;
   
@@ -102,5 +102,6 @@ module.exports = {
   update,
   remove,
   completeTask,
+  assignTask,
   _reset,
 };
